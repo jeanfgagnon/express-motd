@@ -1,33 +1,31 @@
-import express = require('express')
 
-var properties = require('../../package.json')
 
-var controller = {
-  about: function (req: express.Request, res: express.Response) {
-    var aboutInfo = {
-      name: properties.name,
-      version: properties.version,
-      author: properties.author
-    }
-    //res.json(aboutInfo);
+import express from 'express';
+
+class Controller {
+  public path = '/about';
+  public router = express.Router();
+
+  constructor() {
+    this.intializeRoutes();
+  }
+
+  public intializeRoutes() {
+    this.router.get(this.path, this.about);
+  }
+
+  public about = (request: express.Request, response: express.Response) => {
     const htm = `
       <h1>express-motd microservices</h1>
-      version ${properties.version}<br />
+      version 0.1.AAAA<br />
       <br />
       API:<br />
       loadmotd: send the motd records<br />
-      savemotd: save the motd received from  frontend
+      savemotd: save the motd received from frontend
     `;
-    res.write(htm);
-  },
-  // getDistance: function (req, res) {
-  //   distance.find(req, res, function (err, dist) {
-  //     if (err)
-  //       res.send(err);
-  //     res.json(dist);
-  //   });
-  // },
-};
+    response.write(htm);
+  }
+}
 
-export default controller;
+export default Controller;
 //module.exports = controllers;
