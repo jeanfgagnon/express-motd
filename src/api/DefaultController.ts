@@ -1,6 +1,6 @@
 import express from 'express';
 
-class Controller {
+class DefaultController {
   public path = '/about';
   public router = express.Router();
 
@@ -10,6 +10,7 @@ class Controller {
 
   public intializeRoutes() {
     this.router.get(this.path, this.about);
+    this.router.get('/', this.about);
   }
 
   public about = (request: express.Request, response: express.Response) => {
@@ -22,8 +23,9 @@ class Controller {
       savemotd: save the motd received from frontend
     `;
     response.write(htm);
+    console.log('hit tabbbb')
   }
 }
 
-export default Controller;
+export default DefaultController;
 //module.exports = controllers;

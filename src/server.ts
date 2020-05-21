@@ -1,9 +1,12 @@
 import App from './app';
-import Controller from './api/controller';
+
+import DefaultController from './api/DefaultController';
+import LoadController from './api/LoadController';
 
 const app = new App(
   [
-    new Controller(),
+    new DefaultController(),
+    new LoadController(),
   ],
   5000,
 );
