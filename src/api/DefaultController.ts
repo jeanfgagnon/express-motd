@@ -23,9 +23,7 @@ class DefaultController {
       savemotd: save the motd received from frontend
     `;
     response.write(htm);
-    console.log('hit tabbbb')
   }
 }
 
 export default DefaultController;
-//module.exports = controllers;

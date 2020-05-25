@@ -19,8 +19,7 @@ class LoadController {
       let jsondata = request.body;
 
       fs.writeFileSync('motd.json', JSON.stringify(jsondata));
-      response.status(200).send('ok').end();
-      console.log('dans le save et body = ', jsondata);
+      response.status(200).send('"ok"');
     }
     catch {
       response.status(500).send("Can't read json data");

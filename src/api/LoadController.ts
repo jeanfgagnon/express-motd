@@ -19,7 +19,7 @@ class LoadController {
       let jsondata = fs.readFileSync('motd.json');
       if (jsondata) {
         let configs = JSON.parse(jsondata.toString());
-        response.json(configs["configs"]);
+        response.status(200).json(configs["configs"]);
       }
     }
     catch {
